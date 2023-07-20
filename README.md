@@ -23,10 +23,17 @@ The API is designed to handle incoming requests.
 `curl localhost:3030`
 
 
-## Stop running process on particular port
+## Usage
+### Stop running process on particular port
 ```shell
     sudo netstat -nlp | grep :3030
     # OR fuser -k  3030/tcp
     PID=825225 # Running process from previous step
     kill -9 $PID # Stop running process 
 ```
+
+## Deploy
+`
+k apply -f deploy/deployment.yaml
+k port-forward alx-api-67466f69fd-f7tqx 3030
+`
